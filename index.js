@@ -1,6 +1,6 @@
 import express from 'express'
 
-const url = 'https://api.vinimini.fdnd.nl/api/v1/producten'
+const url = 'https://api.vinimini.fdnd.nl/api/v1'
 
 // Maak een nieuwe express app
 const app = express()
@@ -12,21 +12,22 @@ app.use(express.static('public'))
 
 // Maak een route voor de index
 app.get('/', (request, response) => {
-  let semesterUrl = url + '/semesters'
+  let semesterUrl = url + '/producten'
 
   fetchJson(semesterUrl).then((data) => {
+    console.log(data)
     response.render('index', data)
   })
 })
 
-app.get('/sprint', (request, response) => {
-  let slug = request.query.sprintSlug || 'your-tribe'
-  let sprintUrl = url + '/sprint/' + slug
-  fetchJson(sprintUrl).then((data) => {
-    // console.log(data)
-    response.render('sprint', data)
-  })
-})
+// app.get('/sprint', (request, response) => {
+//   let slug = request.query.sprintSlug || 'your-tribe'
+//   let sprintUrl = url + '/sprint/' + slug
+//   fetchJson(sprintUrl).then((data) => {
+//     // console.log(data)
+//     response.render('sprint', data)
+//   })
+// })
 
 app.get('/over', (request, response) => {
   response.render('over')

@@ -1,5 +1,18 @@
 <%- include('./partials/head.ejs') %>
 
+<h1>Prodcuten</h1>
+
+<% producten.forEach(product => { %> 
+  <article>
+    <% if (product.categorie.titel) { %> 
+    <%= product.categorie.titel %>
+    <% } else{ %> 
+    <h2>product</h2> 
+    <% } %> 
+  <% }) %> 
+
+  </article>
+
 
 
 <%- include('./partials/foot.ejs') %>
