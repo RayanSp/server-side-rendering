@@ -1,18 +1,31 @@
 <%- include('./partials/head.ejs') %>
 
-<h1>Prodcuten</h1>
+<h1 class="main-title">Producten</h1>
 
+<section class="product-section">
+
+    <!-- For Each loop -->
 <% producten.forEach(product => { %> 
-  <article>
+<div class="product-div">
     <% if (product.categorie.titel) { %> 
-    <%= product.categorie.titel %>
-    <% } else{ %> 
-    <h2>product</h2> 
+        <h2 class="product-title"> 
+            <%= product.categorie.titel %> 
+    
+        </h2>
     <% } %> 
-  <% }) %> 
+    
+    <% if(product.plaatjes.length > 0) { %>
+        <% product.plaatjes.forEach(plaatje => { %>
+            <img class="product-image" src="<%= plaatje.url %>" alt="product afbeelding" loading="lazy"/>
+        <% }) %>   
+    <% } else { %>
+        <img class="product-image" src="/vinimini-ei.jpeg" alt="product afbeelding" loading="lazy"/>
+    <% } %>
+    <button class="product-button" href="product button" type="button">Bekijk product!</button> 
+</div>
+<% }) %> 
 
-  </article>
-
-
+ 
+</section>  
 
 <%- include('./partials/foot.ejs') %>
