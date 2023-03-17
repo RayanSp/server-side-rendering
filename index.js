@@ -29,8 +29,12 @@ app.get('/', (request, response) => {
 //   })
 // })
 
-app.get('/over', (request, response) => {
+app.get('/over-ons', (request, response) => {
   response.render('over')
+})
+
+app.get('/nieuws', (request, response) => {
+  response.render('nieuws')
 })
 
 app.get('/contact', (request, response) => {
